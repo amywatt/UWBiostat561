@@ -26,6 +26,8 @@ country_population <- readr::read_csv("https://raw.githubusercontent.com/linnyko
 country_birth <- readr::read_csv("https://raw.githubusercontent.com/linnykos/561_s2024_public/main/HW2_files/country_birth.csv")
 
 penguins <- readr::read_csv("https://raw.githubusercontent.com/linnykos/561_s2024_public/main/HW2_files/palmerpenguins.csv")
+
+source("https://raw.githubusercontent.com/linnykos/561_s2024_public/main/HW2_files/random_graph_functions.R")
 ```
 
 ## Question 0
@@ -130,11 +132,39 @@ penguins %>%
 
 ### Question 3A
 
+generate_random_graph() creates an n by n matrix, where n is an integer input to the function. The entries in this matrix are randomly selected such that they are 0 90% of the time and 1 10% of the time. To symmetrisize the matrix, add the matrix to its inverse and replace all non-zero entries with 1. Additionally, set the diagonal of the matrix to all 1. Then, take the first 20% of the rows and columns (rounded up to nearest whole number), and set all equal to 1. The nodess are then shuffled and the fumction returms the shuffled matrix and a list of numbers to undo the shuffling. 
+
 ### Question 3B
+
+pivot_longer_heatmap() creates a new row for every entry in adj_mat. If adj_mat is 20x20, it will create a row for [1,1], where X = 1, Y = 1, and value is the entry at this position in adj_mat, another row for [1,2], .... There will be n x n rows in the result.
 
 ### Question 3C
 
+```{r}
+set.seed(2)
+
+result <- generate_random_graph(n = 20)
+adj_mat <- result$adj_mat
+mat_long <- pivot_longer_heatmap(adj_mat)
+ggplot(aes(x=X, y=Y, fill=as.factor(Value)), data=mat_long) + 
+  geom_tile() + 
+  coord_fixed(ratio = 1) + 
+  scale_fill_manual(values = c("1" = "coral2", "0" = "palegoldenrod")) + 
+  labs(fill = "Value")
+```
+
 ### Question 3D
+
+```{r}
+adj_mat2 <- result$adj_mat[result$rev_order, result$rev_order]
+mat_long <- pivot_longer_heatmap(adj_mat2)
+ggplot(aes(x=X, y=Y, fill=as.factor(Value)), data=mat_long) + 
+  geom_tile() + 
+  coord_fixed(ratio = 1) + 
+  scale_fill_manual(values = c("1" = "coral2", "0" = "palegoldenrod")) + 
+  labs(fill = "Value")
+```
+The dense red at the bottom left is the clique that was introduced in the generate_random_graph code. 
 
 ## Question 4
 
