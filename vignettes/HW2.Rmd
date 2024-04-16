@@ -132,7 +132,7 @@ penguins %>%
 
 ### Question 3A
 
-generate_random_graph() creates an n by n matrix, where n is an integer input to the function. The entries in this matrix are randomly selected such that they are 0 90% of the time and 1 10% of the time. To symmetrisize the matrix, add the matrix to its inverse and replace all non-zero entries with 1. Additionally, set the diagonal of the matrix to all 1. Then, take the first 20% of the rows and columns (rounded up to nearest whole number), and set all equal to 1. The nodess are then shuffled and the fumction returms the shuffled matrix and a list of numbers to undo the shuffling. 
+generate_random_graph() creates an n by n matrix, where n is an integer input to the function. The entries in this matrix are randomly selected such that they are 0 90% of the time and 1 10% of the time. To symmetrize the matrix, add the matrix to its inverse and replace all non-zero entries with 1. Additionally, set the diagonal of the matrix to all 1. Then, take the first 20% of the rows and columns (rounded up to nearest whole number), and set all equal to 1. The nodes are then shuffled and the function returns the shuffled matrix and a list of numbers to undo the shuffling. 
 
 ### Question 3B
 
@@ -164,8 +164,13 @@ ggplot(aes(x=X, y=Y, fill=as.factor(Value)), data=mat_long) +
   scale_fill_manual(values = c("1" = "coral2", "0" = "palegoldenrod")) + 
   labs(fill = "Value")
 ```
-The dense red at the bottom left is the clique that was introduced in the generate_random_graph code. 
+The dense red at the bottom left is the clique that was introduced in the generate_random_graph code. The plot tells us that there are 4 nodes that are all pairwise connected in adj_mat2, and thus there are also 4 nodes that are pairwise connected in adj_mat (but it is harder to visualize in adj_mat). 
 
 ## Question 4
+
+- test on matrices that are not square to make sure it fails
+- test on simulated matrices with known clique sizes 
+- test on matrices and the same matrices with shuffled nodes to make sure the result is the same 
+- test on null/empty matrices as an edge case, the function should return 0 and not an error 
 
 ## Question 5
