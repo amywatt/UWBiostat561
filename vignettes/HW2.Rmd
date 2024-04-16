@@ -14,10 +14,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, include = FALSE}
 library(tidyverse)
 library(bookdown)
 library(ggplot2)
+```
+
+```{r import data, include = FALSE}
+country_population <- readr::read_csv("https://raw.githubusercontent.com/linnykos/561_s2024_public/main/HW2_files/country_population.csv")
+
+country_birth <- readr::read_csv("https://raw.githubusercontent.com/linnykos/561_s2024_public/main/HW2_files/country_birth.csv")
+
+penguins <- readr::read_csv("https://raw.githubusercontent.com/linnykos/561_s2024_public/main/HW2_files/palmerpenguins.csv")
 ```
 
 ## Question 0
@@ -26,15 +34,97 @@ library(ggplot2)
 
 ### Question 1A
 
+```{r}
+q1a <- country_population %>% 
+  filter(
+    year >= 1990, 
+    year<= 2010
+  ) %>%
+  group_by(
+    iso3c,
+    country
+  ) %>%
+  summarise(
+    mean_population = mean(population)
+  )
+
+head(q1a)
+```
+
 ### Question 1B
 
+```{r}
+q1b <- country_birth %>% 
+  filter(
+    year >= 1990, 
+    year<= 2010
+  ) %>%
+  select(
+    iso3c, 
+    year, 
+    life_expect
+  ) %>% 
+  drop_na() %>%
+  group_by(
+    iso3c
+  ) %>%
+  summarise(
+    min_life_expect = min(life_expect), 
+    max_life_expect = max(life_expect)
+  ) %>% 
+  ungroup() %>%
+  mutate(
+    range_life_expect = max_life_expect - min_life_expect
+  )
+
+head(q1b)
+```
+
 ### Question 1C
+
+```{r}
+country_both <- inner_join(x = q1a, y = q1b, by = "iso3c")
+
+head(country_both, n=10)
+```
+
+Num rows: `r nrow(country_both)` 
+
+Num cols: `r ncol(country_both)` 
 
 ## Question 2
 
 ### Question 2A
 
+```{r, fig.dim = c(8, 6)}
+penguins %>%
+  ggplot(aes(x = bill_depth_mm, y = bill_length_mm, 
+             color = species)) +
+  geom_point() +
+  scale_color_manual(values=c("Adelie" = "cornflowerblue",
+                              "Chinstrap" = "coral2",
+                              "Gentoo" = "goldenrod3")) +
+  labs(x = "Bill Depth (mm)", 
+       y = "Bill Length (mm)", 
+       title = paste0("Relation Among ", as.character(nrow(penguins))," Penguins"))
+```
+
 ### Question 2B
+
+```{r, fig.dim = c(8, 6)}
+penguins %>%
+  ggplot(aes(x = bill_depth_mm, y = bill_length_mm, 
+             color = species)) +
+  geom_point(alpha=0.5) +
+  scale_color_manual(values=c("Adelie" = "cornflowerblue",
+                              "Chinstrap" = "coral2",
+                              "Gentoo" = "goldenrod3")) +
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Bill Depth (mm)", 
+       y = "Bill Length (mm)", 
+       title = paste0("Relation Among ", as.character(nrow(penguins))," Penguins")) +
+  facet_wrap(~species, nrow = 1)
+```
 
 ## Question 3
 
