@@ -1,0 +1,65 @@
+---
+title: "HW3"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{HW3}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(bookdown)
+library(ggplot2)
+```
+
+## Question 1 
+
+### Question 1A
+
+### Question 1B
+
+### Question 1C
+
+### Question 1D
+
+## Question 2
+
+### Question 2A
+
+### Question 2B
+
+### Question 2C
+
+## Question 3
+
+### Question 3A
+
+### Question 3B
+
+### Question 3C
+
+### Question 3D
+
+## Question 4
+
+### Question 4A
+
+### Question 4B
+
+### Question 4C
+
+### Question 4D
+
+## Question 5
+
+### Question 5A
+
+### Question 5B
