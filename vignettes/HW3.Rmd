@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(bookdown)
 library(ggplot2)
+library(UWBiostat561)
 ```
 
 ## Question 1 
@@ -29,6 +30,18 @@ library(ggplot2)
 ### Question 1C
 
 ### Question 1D
+
+```{r}
+set.seed(0)
+simulation <- generate_partial_clique(
+  n = 10,
+  clique_fraction = 0.5,
+  clique_edge_density = 0.9
+)
+
+simulation$adj_mat
+```
+
 
 ## Question 2
 
