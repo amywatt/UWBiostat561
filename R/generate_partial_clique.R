@@ -38,27 +38,39 @@ generate_partial_clique <- function(n, clique_fraction, clique_edge_density) {
   # Determine the number of vertices in the partial clique
   clique_size <- round(n * clique_fraction)
 
+  # Determine the number of edges in partial clique
+  clique_edges <- (clique_size * (clique_size - 1))/2
+
+  # Determine which edges to connect to satisfy density
+  clique_edges <- c(rep(1, ceiling(clique_edges * clique_edge_density)), rep(0, floor(clique_edges * clique_edge_density)))
+
+  # Randomize which edges are connected
+  clique_edges <- sample(clique_edges)
+
   # Generate a random partial clique
   clique <- sample(1:n, clique_size)
 
   # Connect vertices within the clique with specified edge density
   for (i in clique) {
     for (j in clique) {
-      if (i != j) {
-        if (runif(1) <= clique_edge_density) {
-          adj_mat[i, j] <- 1
-          adj_mat[j, i] <- 1
-        }
+      if (j > i) {
+        adj_mat[i, j] <- clique_edges[i]
+        adj_mat[j, i] <- clique_edges[i]
       }
     }
   }
+
+  diag(adj_mat) <- 1
 
   # Output the adjacency matrix
   return(list(adj_mat = adj_mat))
 }
 
-n <- 8
-clique_fraction <- 0.5
-clique_edge_density <- 0.8
-generate_partial_clique(n, clique_fraction, clique_edge_density)
-
+# n <- 8
+# clique_fraction <- 0.5
+# clique_edge_density <- 0.8
+# alpha <- 0.8
+# partial_clique <- generate_partial_clique(n, clique_fraction, clique_edge_density)
+# adj_mat <- partial_clique$adj_mat
+# adj_mat
+# image(as.matrix(adj_mat), asp = TRUE)

@@ -1,12 +1,11 @@
 Package: UWBiostat561
-Title: What the Package Does (One Line, Title Case)
+Title: Functions for UW Biostatistics 561 Course
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Amy", "Watt", , "amywatt@uw.edu", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: This package contains functions developed for the UW Biostatistics 561 course. It includes tools for computing maximal partial cliques, and other related tasks covered in the course curriculum.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
