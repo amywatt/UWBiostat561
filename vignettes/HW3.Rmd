@@ -22,6 +22,10 @@ library(ggplot2)
 library(UWBiostat561)
 ```
 
+## Disclosures
+
+I used ChatGPT to generate the check input functions and the starting code for both generating random graphs and finding maximal partial cliques. 
+
 ## Question 1 
 
 ### Question 1A
