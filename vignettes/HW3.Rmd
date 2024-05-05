@@ -55,7 +55,7 @@ simulation$adj_mat
 ```{r}
 set.seed(0)
 simulation <- UWBiostat561::generate_partial_clique(
-  n = 10,
+  n = 30,
   clique_fraction = 0.5,
   clique_edge_density = 0.9
 )
@@ -67,6 +67,14 @@ res <- UWBiostat561::compute_maximal_partial_clique(
   alpha = 0.9
 )
 res
+
+system.time(UWBiostat561::compute_maximal_partial_clique(
+  adj_mat = adj_mat,
+  alpha = 0.9
+))
+```
+```{r}
+
 ```
 
 ## Question 3

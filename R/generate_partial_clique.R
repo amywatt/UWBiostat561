@@ -36,7 +36,7 @@ generate_partial_clique <- function(n, clique_fraction, clique_edge_density) {
   adj_mat <- matrix(0, nrow = n, ncol = n)
 
   # Determine the number of vertices in the partial clique
-  clique_size <- round(n * clique_fraction)
+  clique_size <- ceiling(n * clique_fraction)
 
   # Determine the number of edges in partial clique
   clique_edges <- (clique_size * (clique_size - 1))/2
@@ -65,12 +65,3 @@ generate_partial_clique <- function(n, clique_fraction, clique_edge_density) {
   # Output the adjacency matrix
   return(list(adj_mat = adj_mat))
 }
-
-# n <- 8
-# clique_fraction <- 0.5
-# clique_edge_density <- 0.8
-# alpha <- 0.8
-# partial_clique <- generate_partial_clique(n, clique_fraction, clique_edge_density)
-# adj_mat <- partial_clique$adj_mat
-# adj_mat
-# image(as.matrix(adj_mat), asp = TRUE)
