@@ -42,20 +42,24 @@ generate_partial_clique <- function(n, clique_fraction, clique_edge_density) {
   clique_edges <- (clique_size * (clique_size - 1))/2
 
   # Determine which edges to connect to satisfy density
-  clique_edges <- c(rep(1, ceiling(clique_edges * clique_edge_density)), rep(0, floor(clique_edges * clique_edge_density)))
+  clique_edges <- c(rep(1, ceiling(clique_edges * clique_edge_density)), rep(0, clique_edges - ceiling(clique_edges * clique_edge_density)))
 
   # Randomize which edges are connected
   clique_edges <- sample(clique_edges)
 
   # Generate a random partial clique
-  clique <- sample(1:n, clique_size)
+  clique <- sort(sample(1:n, clique_size))
 
   # Connect vertices within the clique with specified edge density
-  for (i in clique) {
-    for (j in clique) {
+  counter = 1
+  for (i in 1:clique_size) {
+    v1 <- clique[i]
+    for (j in 1:clique_size) {
+      v2 <- clique[j]
       if (j > i) {
-        adj_mat[i, j] <- clique_edges[i]
-        adj_mat[j, i] <- clique_edges[i]
+        adj_mat[v1, v2] <- clique_edges[counter]
+        adj_mat[v2, v1] <- clique_edges[counter]
+        counter <- counter + 1
       }
     }
   }

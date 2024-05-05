@@ -146,7 +146,7 @@ compute_maximal_partial_clique <- function(adj_mat, alpha) {
   }
 
   if(!.validate_alpha(alpha)) {
-    stop("Alpha argument must be: 1) a single numeric (i.e., a length of 1), and 2) has a value between 0.5 and 1 (inclusive")
+    stop("Alpha argument must be: 1) a single numeric (i.e., a length of 1), and 2) has a value between 0.5 and 1 (inclusive)")
   }
 }
 

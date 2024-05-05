@@ -11,7 +11,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Suggests: 
     knitr,
-    stats,
+    devtools,
+    testthat,
+    readr,
     rmarkdown,
     bookdown,
     tidyverse,

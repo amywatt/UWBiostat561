@@ -33,7 +33,7 @@ library(UWBiostat561)
 ### Question 1D
 
 ```{r}
-set.seed(0)
+set.seed(10)
 simulation <- UWBiostat561::generate_partial_clique(
   n = 10,
   clique_fraction = 0.5,
@@ -42,7 +42,6 @@ simulation <- UWBiostat561::generate_partial_clique(
 
 simulation$adj_mat
 ```
-
 
 ## Question 2
 
@@ -73,9 +72,6 @@ system.time(UWBiostat561::compute_maximal_partial_clique(
   alpha = 0.9
 ))
 ```
-```{r}
-
-```
 
 ## Question 3
 
@@ -95,10 +91,21 @@ system.time(UWBiostat561::compute_maximal_partial_clique(
 
 ### Question 4C
 
+```{r}
+knitr::include_graphics("images/hw3head.png")
+knitr::include_graphics("images/hw3tail.png")
+```
+
 ### Question 4D
+
+```{r}
+devtools::session_info()
+```
 
 ## Question 5
 
 ### Question 5A
+
+I can access OpenSesame.
 
 ### Question 5B
