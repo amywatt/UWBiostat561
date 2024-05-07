@@ -113,3 +113,6 @@ devtools::session_info()
 I can access OpenSesame.
 
 ### Question 5B
+
+I will be writing a function to simulate data and estimate parameters for an independent study. If it is ready in time, I would like to use the code for the project. 
+
