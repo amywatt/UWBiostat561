@@ -16,7 +16,7 @@ level_trial_list <- lapply(alpha_vec, function(alpha){
     set.seed(trial) # to freeze the randomness of adj_mat
 
     # generate the data
-    data <- UWBiostat561::generate_partial_clique(n = 10, clique_fraction = 0.9)
+    data <- UWBiostat561::generate_partial_clique(n = 10, clique_fraction = 0.9, clique_edge_density = 0.8)
     adj_mat <- data$adj_mat
 
     # loop over the methods for this trial
