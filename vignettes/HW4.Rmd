@@ -260,20 +260,35 @@ Simulation plan:
 
 ### Question 2C
 
+Wrote simulation function
+
 ### Question 2D
+
+Wrote unit tests 
 
 ### Question 2E
 
+```{r}
+knitr::include_graphics("images/hw4head.png")
+knitr::include_graphics("images/hw4tail.png")
+```
 
 ## Question 3
 
 ### Question 3A
 
+Wrote HW4_simulation_execute.R, HW4_simulation_execute.slurm
+
 ### Question 3B
 
 ### Question 3C
 
+Ran: 
+sbatch HW4_simulation_execute.slurm
+
 ### Question 3D
+
+Wrote HW4_simulation_plot.R
 
 ### Question 3E
 
