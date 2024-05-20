@@ -252,11 +252,11 @@ result1
 Simulation plan: 
 
 - Data generation: I will use the generate clique function from hw3 
-- Data randomness: I will generate adj_mat of n = 10/25/50, clique fractions = 0.3/0.6/0.9, and edge densities = 0.3/0.6/0.9
+- Data randomness: I will vary n = 15/35, clique fractions = 0.6/0.9, and edge densities = 0.6/0.9 and will test on two alpha levels 
 - Methods: all 25 on canvas 
 - I hope to see trends in methods that calculate the largest clique across the changing parameters 
-- 3 trials per level outlined above. 
-- 3x3x3 = 27 trials per implementation; 27 trials x 0.5 min/trial x 25 methods = 337.5 minutes 
+- 1 trial per level outlined above. 
+- 2x2x2x2 = 16 trials per implementation; 16 trials x 0.5 min/trial x 25 implementations / 60 = 3.3 hours
 
 ### Question 2C
 
