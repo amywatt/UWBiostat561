@@ -209,13 +209,61 @@ testthat::test_that("compute_maximal_partial_clique10 works", {
 
 ### Question 2A
 
+```{r}
+set.seed(10)
+data <- UWBiostat561::generate_partial_clique(n = 10, 
+                                            clique_fraction = 0.5,
+                                            clique_edge_density = 0.95)
+
+set.seed(10)
+result1 <- UWBiostat561::compute_maximal_partial_clique_master(
+  adj_mat = data$adj_mat, 
+  alpha = 0.95, 
+  number = 11, 
+  time_limit = 30
+)
+result1
+
+set.seed(10)
+result2 <- UWBiostat561::compute_maximal_partial_clique11(
+  adj_mat = data$adj_mat, 
+  alpha = 0.95
+)
+result2
+```
+
+```{r}
+set.seed(10)
+data <- UWBiostat561::generate_partial_clique(n = 50, 
+                                            clique_fraction = 0.5,
+                                            clique_edge_density = 0.95)
+
+result1 <- UWBiostat561::compute_maximal_partial_clique_master(
+  adj_mat = data$adj_mat, 
+  alpha = 0.95, 
+  number = 1, 
+  time_limit = 20
+)
+
+result1
+```
 ### Question 2B
+
+Simulation plan: 
+
+- Data generation: I will use the generate clique function from hw3 
+- Data randomness: I will generate adj_mat of n = 10/25/50, clique fractions = 0.3/0.6/0.9, and edge densities = 0.3/0.6/0.9
+- Methods: all 25 on canvas 
+- I hope to see trends in methods that calculate the largest clique across the changing parameters 
+- 3 trials per level outlined above. 
+- 3x3x3 = 27 trials per implementation; 27 trials x 0.5 min/trial x 25 methods = 337.5 minutes 
 
 ### Question 2C
 
 ### Question 2D
 
 ### Question 2E
+
 
 ## Question 3
 

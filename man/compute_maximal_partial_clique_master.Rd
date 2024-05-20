@@ -16,7 +16,8 @@ compute_maximal_partial_clique_master(adj_mat, alpha, number, time_limit = 30)
 \item{time_limit}{the number of seconds the implementation has before it times out}
 }
 \value{
-a list with \code{clique_idx}, \code{edge_density}, and \code{status}
+a list with \code{clique_idx}, \code{edge_density} (which are from the implementation itself)
+and \code{status} and \code{valid} (which are added by this function)
 }
 \description{
 This function runs a implementation (dictated by \code{number}) using the inputs
@@ -26,4 +27,8 @@ executes \code{compute_maximal_partial_clique5(adj_mat, alpha)}.
 \details{
 If the implementation errors (i.e., crashes), then the output \code{status} will be \code{error}.
 If the implementation did not complete within \code{time_limit} number of seconds (i.e., took too long), then the output \code{status} will be \code{timed_out}.
+
+The \code{valid} output is a boolean on whether or not the provided \code{clique_idx}
+forms a valid partial clique. If the method had status \code{timed_out} or \code{error},
+the method would (by default) have a \code{valid=FALSE}.
 }

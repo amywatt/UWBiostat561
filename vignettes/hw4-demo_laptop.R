@@ -1,14 +1,14 @@
 set.seed(10)
-library(UWBiost561)
+library(UWBiostat561)
 
-data <- UWBiost561::generate_partial_clique(n = 10)
+data <- UWBiostat561::generate_partial_clique(n = 10, clique_fraction = 0.5, clique_edge_density = 0.5)
 adj_mat <- data$adj_mat
 
 imp_numbers <- 1:25
 
 result_list <- lapply(imp_numbers, function(imp_number){
   print(paste("Working on implementation:", imp_number))
-  result <- UWBiost561::compute_maximal_partial_clique_master(adj_mat = adj_mat,
+  result <- UWBiostat561::compute_maximal_partial_clique_master(adj_mat = adj_mat,
                                                               alpha = 0.95,
                                                               number = imp_number,
                                                               time_limit = 30)
