@@ -5,9 +5,9 @@ library(UWBiostat561)
 n_vec <- c(5, 10)
 clique_fraction_vec <- c(0.6, 0.9)
 clique_edge_density_vec <- c(0.6, 0.9)
-alpha_vec <- c(0.75)
+alpha_vec <- c(0.5, 0.9)
 trials <- 1
-imp_numbers <- c(1, 23)
+imp_numbers <- 1:25
 
 result <- hw4_simulation(n_vec, clique_fraction_vec, clique_edge_density_vec, alpha_vec, trials, imp_numbers)
 

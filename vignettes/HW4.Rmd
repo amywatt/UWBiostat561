@@ -247,6 +247,7 @@ result1 <- UWBiostat561::compute_maximal_partial_clique_master(
 
 result1
 ```
+
 ### Question 2B
 
 Simulation plan: 
@@ -256,7 +257,7 @@ Simulation plan:
 - Methods: all 25 on canvas 
 - I hope to see trends in methods that calculate the largest clique across the changing parameters 
 - 1 trial per level outlined above. 
-- 2x2x2x2 = 16 trials per implementation; 16 trials x 0.5 min/trial x 25 implementations / 60 = 3.3 hours
+- 2 (n) x 2 (clique frac) x 2 (edge density) x 2 (alpha) = 16 trials per implementation; 16 trials x 0.5 min/trial x 25 implementations / 60 = 3.3 hours
 
 ### Question 2C
 
@@ -288,9 +289,13 @@ sbatch HW4_simulation_execute.slurm
 
 ### Question 3D
 
-Wrote HW4_simulation_plot.R
+Wrote HW4_simulation_plot.R, ran interactively 
 
 ### Question 3E
+
+```{r}
+knitr::include_graphics("HW4_simulation_plot.png")
+```
 
 ## Question 4
 
