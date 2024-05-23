@@ -269,7 +269,7 @@ Wrote unit tests
 
 ### Question 2E
 
-```{r}
+```{r, out.width = "600px"}
 knitr::include_graphics("images/hw4head.png")
 knitr::include_graphics("images/hw4tail.png")
 ```
@@ -293,10 +293,12 @@ Wrote HW4_simulation_plot.R, ran interactively
 
 ### Question 3E
 
-```{r}
+```{r, out.width = "600px"}
 knitr::include_graphics("HW4_simulation_plot.png")
 ```
 
 ## Question 4
+
+I am thinking of using the UWBiostat561 package to make a pkgdown website or writing a function for plots I am making for my RA. 
 
 ## Question 5
