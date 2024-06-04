@@ -1,0 +1,68 @@
+---
+title: "Demo"
+output: 
+  rmarkdown::html_vignette:
+    df_print: kable
+vignette: >
+  %\VignetteIndexEntry{Get Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(UWBiostat561)
+library(ggplot2)
+```
+
+This is a demo vignette for the UWBiostat561 package. We will generate adjacency matrices, use the provided function to calculate the maximum partial clique, and run a small simulation. The following lines of code runs the entire example. 
+
+## Generate a random adjacency matrix 
+
+```{r}
+set.seed(10)
+n <- 10
+clique_fraction <- 0.5
+clique_edge_density <- 0.8
+result <- generate_partial_clique(n, clique_fraction, clique_edge_density)
+result
+```
+
+## Run an implementation of calculate maximum partial clique 
+
+```{r}
+alpha <- 0.8
+compute_maximal_partial_clique(result$adj_mat, alpha)
+```
+
+## Run Simulation
+
+```{r}
+n_vec <- c(5, 10, 15)
+clique_fraction_vec <- c(0.6, 0.9)
+clique_edge_density_vec <- c(0.6, 0.9)
+alpha_vec <- c(0.5, 0.9)
+trials <- 1
+imp_numbers <- c(1, 5, 23)
+
+result <- hw4_simulation(n_vec, clique_fraction_vec, clique_edge_density_vec, alpha_vec, trials, imp_numbers)
+```
+
+## Plot results 
+
+```{r}
+df <- data.frame(
+  implementation = rownames(result$result),
+  value = result$result$num_largest_partial_clique)
+
+ggplot(data = df, aes(x = implementation, y=value)) +
+  geom_bar(stat="identity") + 
+  geom_hline(yintercept=result$num_tests, col="red")
+```
+
