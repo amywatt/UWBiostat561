@@ -30,8 +30,7 @@ The package depends on the following packages: `ggplot2`.
 
 This package was developed in the following environment
 
-
-
+```R
 ─ Session info ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.3.2 (2023-10-31)
@@ -115,3 +114,4 @@ This package was developed in the following environment
  xfun           0.43       2024-03-25 [1] CRAN (R 4.3.1)
  xtable         1.8-4      2019-04-21 [1] CRAN (R 4.3.0)
  yaml           2.3.8      2023-12-11 [1] CRAN (R 4.3.1)
+```
